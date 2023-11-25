@@ -1,0 +1,28 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="passwordulator"
+config/version="1.0"
+run/main_scene="res://main.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="passwordulator"
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
+boot_splash/image="res://icons/4x/Artboard 1@4x.png"
+config/icon="res://icons/1x/icon.png"
+
+[display]
+
+window/stretch/aspect="ignore"
+
+[dotnet]
+
+project/assembly_name="passwordulator4"

@@ -1,0 +1,239 @@
+[gd_scene load_steps=3 format=3 uid="uid://g2206ftlietn"]
+
+[ext_resource type="Script" path="res://cancel.gd" id="1_24gmy"]
+[ext_resource type="Script" path="res://settings.gd" id="1_jvih6"]
+
+[node name="settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jvih6")
+metadata/_edit_vertical_guides_ = [115.0, 1059.0, 604.0, 1149.0]
+metadata/_edit_horizontal_guides_ = [645.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.380392, 0.380392, 0.380392, 1)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="cancel" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = -34.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Cancel"
+script = ExtResource("1_24gmy")
+
+[node name="paranoiaSlider" type="VSlider" parent="."]
+layout_mode = 0
+anchor_bottom = 1.0
+offset_left = 77.0
+offset_top = 89.0
+offset_right = 93.0
+offset_bottom = -96.0
+max_value = 3.0
+tick_count = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="paranoiaSlider"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = -8.0
+offset_right = 306.0
+offset_bottom = 18.0
+text = "I am being targeted by a nation state."
+
+[node name="Label" type="Label" parent="paranoiaSlider/Label4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.589
+offset_left = 1.0
+offset_top = 27.0
+offset_right = -698.221
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 10
+text = "(No data is saved at all. 
+This limits functionality, but it also means that you data 
+cannot be compromised as there is nothing to hack.)"
+
+[node name="Label3" type="Label" parent="paranoiaSlider"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.343
+anchor_right = 30.791
+anchor_bottom = 0.343
+offset_left = 38.0
+offset_top = -12.809
+offset_right = -186.656
+offset_bottom = 13.191
+text = "They are out to get me."
+
+[node name="Label" type="Label" parent="paranoiaSlider/Label3"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 27.0
+offset_right = 475.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 10
+text = "(All data is encrypted. Your control password is not saved.
+If someone steals your user data they could theoretically break the encryption and see which 
+services you have saved logins for, but they would not be able to derive any passwords.)"
+
+[node name="Label" type="Label" parent="paranoiaSlider"]
+layout_mode = 0
+anchor_top = 1.015
+anchor_bottom = 1.015
+offset_left = 38.0
+offset_top = -25.945
+offset_right = 306.0
+offset_bottom = 0.0549622
+text = "I save my passwords in a text file."
+
+[node name="Label" type="Label" parent="paranoiaSlider/Label"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 27.0
+offset_right = 269.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 10
+text = "(Your decryption password is saved in plain text and autoloaded at runtime...)"
+
+[node name="Label2" type="Label" parent="paranoiaSlider"]
+layout_mode = 0
+anchor_top = 0.663
+anchor_bottom = 0.663
+offset_left = 38.0
+offset_top = -12.969
+offset_right = 306.0
+offset_bottom = 13.031
+text = "Normal Human."
+
+[node name="Label" type="Label" parent="paranoiaSlider/Label2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 27.0
+offset_right = 269.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 10
+text = "(All data is saved encryped.
+Theoretically someone could steal your user data file and break the encryption, 
+revealing all your saved logins and passwords.)"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 431.0
+offset_right = 299.0
+offset_bottom = 476.0
+rotation = -1.57173
+theme_override_font_sizes/font_size = 30
+text = "Paranoia Level"
+
+[node name="ok" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -34.0
+offset_right = 94.0
+offset_bottom = -3.0
+grow_vertical = 0
+text = "OK
+"
+
+[node name="reallyok" type="Button" parent="ok"]
+visible = false
+layout_mode = 0
+offset_left = 837.0
+offset_right = 918.0
+offset_bottom = 31.0
+text = "I Understand"
+
+[node name="warningLabel" type="Label" parent="ok/reallyok"]
+layout_mode = 0
+offset_left = -730.0
+offset_top = 2.0
+offset_right = -10.0
+offset_bottom = 28.0
+text = "you have done something that might be bad are you really sure? and this text is long enough"
+horizontal_alignment = 2
+
+[node name="saltText" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+offset_left = 28.0
+offset_top = 186.0
+offset_right = -93.0
+offset_bottom = 217.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="saltText"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -27.0
+offset_right = 66.0
+offset_bottom = -2.0
+text = "Salt:"
+
+[node name="saltGen" type="Button" parent="saltText"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.027
+anchor_top = -6.015
+anchor_right = 1.227
+anchor_bottom = -6.015
+offset_left = -0.0420227
+offset_top = 186.465
+offset_right = -13.2421
+offset_bottom = 217.465
+text = "New Salt"
+
+[node name="remoteServer" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+offset_left = 28.0
+offset_top = 110.0
+offset_right = -93.0
+offset_bottom = 141.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="remoteServer"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -29.0
+offset_right = 123.0
+offset_bottom = -2.0
+text = "Remote Server:"
+
+[node name="remoteServerCheck" type="CheckButton" parent="remoteServer"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = -27.0
+offset_right = 168.0
+offset_bottom = -3.0
+
+[connection signal="pressed" from="cancel" to="cancel" method="_on_cancel_pressed"]
+[connection signal="pressed" from="ok" to="." method="_on_ok_pressed"]
+[connection signal="pressed" from="ok/reallyok" to="." method="_on_reallyok_pressed"]
+[connection signal="pressed" from="saltText/saltGen" to="." method="_on_salt_gen_pressed"]
+[connection signal="toggled" from="remoteServer/remoteServerCheck" to="." method="_on_remote_server_check_toggled"]

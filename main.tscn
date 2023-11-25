@@ -1,0 +1,512 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0f5s5m8p52wb"]
+
+[ext_resource type="Material" uid="uid://cvbq0uosuo24l" path="res://passwordControl.tres" id="1_1rp2r"]
+[ext_resource type="Script" path="res://main.cs" id="1_pivsb"]
+[ext_resource type="Texture2D" uid="uid://ods4wca26dx1" path="res://hidden.svg" id="2_wdb5l"]
+[ext_resource type="Script" path="res://masterControl.gd" id="3_b2fy0"]
+[ext_resource type="Script" path="res://accountList.cs" id="4_n2r0m"]
+[ext_resource type="Script" path="res://settngsButton.gd" id="4_vuv8t"]
+[ext_resource type="Script" path="res://widgetsControl.cs" id="5_d61u8"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.00963)
+script = ExtResource("1_pivsb")
+metadata/_edit_horizontal_guides_ = [128.0, 164.0, 614.0, 507.0]
+metadata/_edit_vertical_guides_ = [397.0, 712.0, 705.0, 1149.0, 671.0]
+
+[node name="masterControl" type="Control" parent="."]
+top_level = true
+material = ExtResource("1_1rp2r")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 79.0
+grow_horizontal = 2
+script = ExtResource("3_b2fy0")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="masterControl"]
+modulate = Color(0.490196, 0.466667, 0.458824, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 79.0
+grow_horizontal = 2
+
+[node name="settingsPW" type="LineEdit" parent="masterControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+offset_left = 111.0
+offset_top = 9.0
+offset_right = -67.0
+offset_bottom = 40.0
+grow_horizontal = 2
+secret = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="masterControl/settingsPW"]
+layout_mode = 0
+offset_left = -155.0
+offset_top = 3.0
+offset_right = -6.0
+offset_bottom = 29.0
+text = "Master Key:"
+horizontal_alignment = 2
+
+[node name="controlPW" type="LineEdit" parent="masterControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+offset_left = 111.0
+offset_top = 44.0
+offset_right = -43.0
+offset_bottom = 76.0
+grow_horizontal = 2
+secret = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="masterControl/controlPW"]
+layout_mode = 0
+offset_left = -148.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = 30.0
+text = "Password Key:"
+horizontal_alignment = 2
+
+[node name="controlPWTimer" type="Timer" parent="masterControl/controlPW"]
+wait_time = 0.5
+one_shot = true
+
+[node name="editSettingsPW" type="CheckButton" parent="masterControl"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.0
+offset_top = 11.0
+offset_right = 2.0
+offset_bottom = 36.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="username" type="LineEdit" parent="masterControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = 100.0
+offset_top = 23.0
+offset_right = -32.0
+offset_bottom = 54.0
+
+[node name="Label" type="Label" parent="masterControl/username"]
+layout_mode = 0
+offset_left = -155.0
+offset_top = 3.0
+offset_right = -6.0
+offset_bottom = 29.0
+text = "Username:"
+horizontal_alignment = 2
+
+[node name="usernameTimer" type="Timer" parent="masterControl/username"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Button" type="Button" parent="masterControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -36.0
+offset_top = 44.0
+offset_right = -4.0
+offset_bottom = 76.0
+grow_horizontal = 2
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("2_wdb5l")
+expand_icon = true
+
+[node name="accountList" type="ItemList" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000131944
+anchor_right = 0.261451
+anchor_bottom = 0.990741
+offset_left = -0.152
+offset_top = 78.0
+offset_right = -0.192017
+offset_bottom = -39.0
+script = ExtResource("4_n2r0m")
+metadata/_edit_use_anchors_ = true
+
+[node name="addService" type="Button" parent="accountList"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 4.99994
+offset_right = 63.0
+offset_bottom = 35.9999
+grow_vertical = 0
+text = "Add"
+
+[node name="deleteService" type="Button" parent="accountList"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = 5.0
+offset_bottom = 36.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Delete
+"
+
+[node name="widgetsControl" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.280472
+anchor_right = 1.0
+anchor_bottom = 1.00846
+offset_left = -0.104004
+offset_top = 82.0
+offset_bottom = -6.47998
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("5_d61u8")
+metadata/_edit_use_anchors_ = true
+
+[node name="serviceName" type="LineEdit" parent="widgetsControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 81.0
+offset_top = 12.0
+offset_right = -3.00024
+offset_bottom = 43.0
+
+[node name="Label" type="Label" parent="widgetsControl/serviceName"]
+layout_mode = 0
+offset_left = -178.0
+offset_top = 3.0
+offset_right = -6.0
+offset_bottom = 29.0
+text = "Service:"
+horizontal_alignment = 2
+
+[node name="serviceNameTimer" type="Timer" parent="widgetsControl/serviceName"]
+wait_time = 0.5
+one_shot = true
+
+[node name="serviceLogin" type="LineEdit" parent="widgetsControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 81.0
+offset_top = 53.0
+offset_right = -3.00024
+offset_bottom = 84.0
+
+[node name="Label" type="Label" parent="widgetsControl/serviceLogin"]
+layout_mode = 0
+offset_left = -177.0
+offset_top = 3.0
+offset_right = -5.0
+offset_bottom = 29.0
+text = "Username:"
+horizontal_alignment = 2
+
+[node name="serviceLoginTimer" type="Timer" parent="widgetsControl/serviceLogin"]
+wait_time = 0.5
+one_shot = true
+
+[node name="iteration" type="SpinBox" parent="widgetsControl"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 92.0
+offset_right = 164.062
+offset_bottom = 123.0
+value = 1.0
+
+[node name="Label" type="Label" parent="widgetsControl/iteration"]
+layout_mode = 0
+offset_left = -155.0
+offset_top = 2.0
+offset_right = -6.0
+offset_bottom = 28.0
+text = "Iteration:
+"
+horizontal_alignment = 2
+
+[node name="password" type="LineEdit" parent="widgetsControl"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 81.0
+offset_top = 138.0
+offset_right = -39.0
+offset_bottom = 169.0
+grow_horizontal = 2
+editable = false
+secret = true
+
+[node name="Label" type="Label" parent="widgetsControl/password"]
+layout_mode = 0
+offset_left = -178.0
+offset_top = 3.0
+offset_right = -6.0
+offset_bottom = 29.0
+text = "Password:"
+horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="widgetsControl/password"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 4.0
+offset_right = 36.0
+offset_bottom = 32.0
+grow_horizontal = 2
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("2_wdb5l")
+expand_icon = true
+
+[node name="fixedPassword" type="CheckBox" parent="widgetsControl/password"]
+layout_mode = 0
+offset_left = 0.000244141
+offset_top = 40.0
+offset_right = 148.0
+offset_bottom = 71.0
+text = "Fixed password"
+
+[node name="copyToClipboard" type="Button" parent="widgetsControl/password"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 41.0
+offset_right = 266.0
+offset_bottom = 72.0
+text = "Copy"
+
+[node name="maxLen" type="SpinBox" parent="widgetsControl"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 389.0
+offset_top = -234.002
+offset_right = -356.938
+offset_bottom = -203.002
+grow_horizontal = 2
+grow_vertical = 0
+value = 40.0
+
+[node name="Label" type="Label" parent="widgetsControl/maxLen"]
+layout_mode = 0
+offset_left = -155.0
+offset_top = 2.0
+offset_right = -6.0
+offset_bottom = 28.0
+text = "Max Length:"
+horizontal_alignment = 2
+
+[node name="include" type="LineEdit" parent="widgetsControl"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 389.0
+offset_top = -196.002
+offset_right = -3.00024
+offset_bottom = -165.002
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="widgetsControl/include"]
+layout_mode = 0
+offset_left = -182.0
+offset_top = 12.9999
+offset_right = -9.99976
+offset_bottom = 38.9999
+text = "Include:"
+horizontal_alignment = 2
+
+[node name="incNums" type="CheckBox" parent="widgetsControl/include"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.594096
+anchor_top = 0.737187
+anchor_right = 0.594096
+anchor_bottom = 0.737187
+offset_left = -258.62
+offset_top = 10.1471
+offset_right = -206.62
+offset_bottom = 41.1471
+text = "0-9"
+
+[node name="incCaps" type="CheckBox" parent="widgetsControl/include"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.594096
+anchor_top = 0.737187
+anchor_right = 0.594096
+anchor_bottom = 0.737187
+offset_left = -201.62
+offset_top = 10.1471
+offset_right = -148.62
+offset_bottom = 41.1471
+text = "A-Z"
+
+[node name="incLower" type="CheckBox" parent="widgetsControl/include"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.594096
+anchor_top = 0.737187
+anchor_right = 0.594096
+anchor_bottom = 0.737187
+offset_left = -144.025
+offset_top = 10.1471
+offset_right = -92.0255
+offset_bottom = 41.1471
+text = "a-z"
+
+[node name="incSymbols" type="CheckBox" parent="widgetsControl/include"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.594096
+anchor_top = 0.737187
+anchor_right = 0.594096
+anchor_bottom = 0.737187
+offset_left = -87.0255
+offset_top = 11.1471
+offset_right = -29.0255
+offset_bottom = 42.1471
+text = "@!#"
+
+[node name="includeTimer" type="Timer" parent="widgetsControl/include"]
+wait_time = 0.5
+one_shot = true
+
+[node name="exclude" type="LineEdit" parent="widgetsControl"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 389.0
+offset_top = -129.002
+offset_right = -3.00024
+offset_bottom = -98.0021
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="widgetsControl/exclude"]
+layout_mode = 0
+offset_left = -178.0
+offset_top = 3.0
+offset_right = -6.0
+offset_bottom = 29.0
+text = "Exclude:"
+horizontal_alignment = 2
+
+[node name="excludeTimer" type="Timer" parent="widgetsControl/exclude"]
+wait_time = 0.5
+one_shot = true
+
+[node name="paranoiaLabel" type="Label" parent="widgetsControl"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -579.0
+offset_top = -28.9545
+offset_right = -163.0
+offset_bottom = -2.95459
+grow_horizontal = 0
+grow_vertical = 0
+text = "Paranoia Level: I save my passwords in a text file."
+
+[node name="settngsButton" type="Button" parent="widgetsControl"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -147.0
+offset_top = -38.9427
+offset_right = -3.0
+offset_bottom = -7.94275
+grow_horizontal = 0
+grow_vertical = 0
+text = "Paranoia Settings"
+script = ExtResource("4_vuv8t")
+
+[node name="saltLabel" type="Label" parent="widgetsControl"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -579.0
+offset_top = -54.0021
+offset_right = 0.999756
+offset_bottom = -37.0021
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "Salt:"
+
+[connection signal="refreshData" from="." to="masterControl" method="_on_main_refresh_data"]
+[connection signal="refreshData" from="." to="accountList" method="RefreshData"]
+[connection signal="focus_exited" from="masterControl/settingsPW" to="masterControl" method="_on_settings_pw_focus_exited"]
+[connection signal="text_changed" from="masterControl/settingsPW" to="masterControl" method="_on_settings_pw_text_changed"]
+[connection signal="text_changed" from="masterControl/controlPW" to="masterControl" method="_on_control_pw_text_changed"]
+[connection signal="timeout" from="masterControl/controlPW/controlPWTimer" to="masterControl" method="_on_control_pw_timer_timeout"]
+[connection signal="focus_exited" from="masterControl/username" to="masterControl" method="_on_settings_pw_focus_exited"]
+[connection signal="text_changed" from="masterControl/username" to="masterControl" method="_on_username_text_changed"]
+[connection signal="timeout" from="masterControl/username/usernameTimer" to="masterControl" method="_on_username_timer_timeout"]
+[connection signal="toggled" from="masterControl/Button" to="masterControl" method="_on_PW_button_toggled"]
+[connection signal="item_selected" from="accountList" to="accountList" method="OnItemSelected"]
+[connection signal="pressed" from="accountList/addService" to="accountList" method="OnAddButtonPressed"]
+[connection signal="pressed" from="accountList/deleteService" to="accountList" method="OnDeleteServicePressed"]
+[connection signal="text_changed" from="widgetsControl/serviceName" to="widgetsControl" method="OnServiceNameTextChanged"]
+[connection signal="timeout" from="widgetsControl/serviceName/serviceNameTimer" to="widgetsControl" method="OnServiceNameTimerTimeout"]
+[connection signal="text_changed" from="widgetsControl/serviceLogin" to="widgetsControl" method="OnServiceLoginTextChanged"]
+[connection signal="timeout" from="widgetsControl/serviceLogin/serviceLoginTimer" to="widgetsControl" method="OnServiceLoginTimerTimeout"]
+[connection signal="value_changed" from="widgetsControl/iteration" to="widgetsControl" method="OnIterationValueChanged"]
+[connection signal="text_changed" from="widgetsControl/password" to="widgetsControl" method="OnPWTextChanged"]
+[connection signal="pressed" from="widgetsControl/password/Button" to="widgetsControl" method="OnPWVisibilityPressed"]
+[connection signal="toggled" from="widgetsControl/password/fixedPassword" to="widgetsControl" method="OnFixedPasswordToggled"]
+[connection signal="pressed" from="widgetsControl/password/copyToClipboard" to="widgetsControl" method="OnCopyToClipboardPressed"]
+[connection signal="value_changed" from="widgetsControl/maxLen" to="widgetsControl" method="OnMaxLenValueChanged"]
+[connection signal="text_changed" from="widgetsControl/include" to="widgetsControl" method="OnIncludeTextChanged"]
+[connection signal="pressed" from="widgetsControl/include/incNums" to="widgetsControl" method="DoIncludes"]
+[connection signal="pressed" from="widgetsControl/include/incCaps" to="widgetsControl" method="DoIncludes"]
+[connection signal="pressed" from="widgetsControl/include/incLower" to="widgetsControl" method="DoIncludes"]
+[connection signal="pressed" from="widgetsControl/include/incSymbols" to="widgetsControl" method="DoIncludes"]
+[connection signal="timeout" from="widgetsControl/include/includeTimer" to="widgetsControl" method="OnIncludeTimerTimeout"]
+[connection signal="text_changed" from="widgetsControl/exclude" to="widgetsControl" method="OnExcludeTextChanged"]
+[connection signal="timeout" from="widgetsControl/exclude/excludeTimer" to="widgetsControl" method="OnExcludeTimerTimeout"]
+[connection signal="pressed" from="widgetsControl/settngsButton" to="widgetsControl/settngsButton" method="_on_settngs_button_pressed"]

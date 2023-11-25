@@ -1,0 +1,5 @@
+{
+    "MaxLen": 10,
+    "Include": "[A-Z]",
+    "Exclude": "!"
+}
