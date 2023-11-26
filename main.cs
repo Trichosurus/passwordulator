@@ -316,7 +316,7 @@ public partial class main : Control
 					EmitSignal(SignalName.refreshData);
 					return;
 				}
-				GD.Print("resposed?");
+				// GD.Print("responded?");
 				if (response.IsSuccessStatusCode) {
 					serverConnection = true;
 					var json = await response.Content.ReadAsStringAsync();

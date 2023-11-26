@@ -29,8 +29,8 @@ func adjust_for_paranoia():
 		# get_node("settingsPW").text = ""
 		# get_node("/root/main/accountList").clear();
 		get_node("/root/main/accountList").set_self_modulate(Color(1,1,1,1))
-		get_node("/root/main/accountList/addService").set_disabled(false)
-		get_node("/root/main/accountList/deleteService").set_disabled(false)
+		#get_node("/root/main/accountList/addService").set_disabled(false)
+		#get_node("/root/main/accountList/deleteService").set_disabled(false)
 		# $controlPW.text = ""
 	else:
 		get_node("settingsPW").editable = false
@@ -61,8 +61,14 @@ func _on_username_timer_timeout():
 	var username = $username.text
 	if !$editSettingsPW.button_pressed:
 		main.NewSettingsPassword(username, settings_pw)
-		
-		
+	
+	print(len($controlPW.text))
+	print(len($username.text))
+	print(len($settingsPW.text))
+	print((len($controlPW.text) > 3 and len($username.text) > 3 and len($settingsPW.text) > 3))
+
+	$/root/main/accountList/addService.set_disabled(!(len($controlPW.text) > 3 && len($username.text) > 3 && len($settingsPW.text) > 3))
+	$/root/main/accountList/deleteService.set_disabled($/root/main/accountList/addService.disabled)
 
 
 func _on_control_pw_text_changed(new_text):
@@ -71,7 +77,10 @@ func _on_control_pw_text_changed(new_text):
 func _on_control_pw_timer_timeout():
 	var main = get_node("/root/main")
 	main.SetUserPassword($controlPW.text)
-
+	$/root/main/accountList/addService.set_disabled(!(len($controlPW.text) > 3 && len($username.text) > 3 && len($settingsPW.text) > 3))
+	$/root/main/accountList/deleteService.set_disabled($/root/main/accountList/addService.disabled)
+	
+	
 func _on_main_refresh_data():
 	
 	var main = get_node("/root/main")
@@ -109,6 +118,9 @@ func _on_settings_pw_focus_exited():
 		main.SetSettingsPassword(username, password)
 	else:
 		main.NewSettingsPassword(username,  password)
+		
+
+
 
 
 func _on_PW_button_toggled(toggled_on):

@@ -232,6 +232,7 @@ offset_top = -27.0
 offset_right = 168.0
 offset_bottom = -3.0
 
+[connection signal="refreshData" from="." to="." method="_on_refresh_data"]
 [connection signal="pressed" from="cancel" to="cancel" method="_on_cancel_pressed"]
 [connection signal="pressed" from="ok" to="." method="_on_ok_pressed"]
 [connection signal="pressed" from="ok/reallyok" to="." method="_on_reallyok_pressed"]

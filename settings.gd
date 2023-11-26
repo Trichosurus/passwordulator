@@ -1,11 +1,17 @@
 extends Control
 
+signal refreshData
+
+
+
 var salt = null
 var waslocal = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("ready")
+	var main  = get_node("/root/main")
+
+	
 	showData()
 
 
@@ -83,9 +89,10 @@ func setData():
 	print(remoteServer.is_pressed())
 	print(main.remoteData)
 	main.GetSalt(remoteServer.is_pressed())
-	print("SaveEncryptedData")
-	main.SaveEncryptedData()
-
+	if !main.remoteData:
+		print("SaveEncryptedData")
+		main.SaveEncryptedData()
+	
 func _on_reallyok_pressed():
 	setData()
 	var settings = get_node("/root/settings")
@@ -98,5 +105,9 @@ func _on_remote_server_check_toggled(toggled_on):
 	main.GetSalt(toggled_on)
 	$saltText.editable = toggled_on
 	salt = main.salt
-	showData()
+	$saltText.text = main.salt
+	emit_signal("refreshData")
+
+
+
 
